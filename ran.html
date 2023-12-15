@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: Inter Display;
+    background-color: #f8f8f8; 
+    color: #333;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+table {
+    width: 100%;
+    flex: 1;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #5a5a5a;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #3498db; 
+    transition: color 0.3s ease; 
+}
+
+a:hover {
+    color: #2980b9; 
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+th#psit,
+th#logo,
+th a {
+    background-color: rgb(255, 251, 0)) 
+    color: #fff;
+}
+
+
+.navigation {
+    background-color: #ecf0f1; 
+}
+
+.logo-img {
+    max-width: 200px;
+}
+
+
+@media (max-width: 600px) {
+    table, th, td {
+        display: block;
+        width: 100%;
+    }
+
+    th, td {
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+}
+
+/* Container-specific styles */
+.description-container {
+    flex: 1;
+    max-height: 300px;
+    overflow-y: auto;
+    position: relative;
+}
+
+.login-container,
+.regis-container,
+.catalog-container {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.login-container label,
+.login-container input,
+.regis-container label,
+.regis-container input,
+.regis-container button,
+.login-container button,
+.catalog-container img,
+.catalog-container h2,
+.catalog-container p,
+.catalog-container ol {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.login-container input {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login-container button,
+.catalog-container button {
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.catalog-container table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.add-to-cart-button {
+    background-color: #ffffff00;
+    /* color: #fff; */
+    padding: 0px;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+.add-to-cart-button:hover {
+    background-color: #7a7a7a20;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.091);
+}
+
+    </style>
+
+
+
+    <title>Responsive Table</title>
+</head>
+<body>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th id="logo"><img src="images/Psit.png" alt="Logo" class="logo-img"></th>
+                    <th style="text-align: center;" id="psit" colspan="4"><h1>PSIT Book Store</h1></th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr class="navigation" height = 9px>
+                    <td><a href="#" onclick="showDescription()">Home</a></td>
+                    <td><a href="#" onclick="showLoginForm()">Login</a></td>
+                    <td><a href="#" onclick="showRegispage()">Registration</a></td>
+                    <td><a href="#" onclick="showCatalogPage()">Catalogue</a></td>
+                    <td><a href="#" onclick="showCart()">Cart</a></td>
+                </tr>
+            
+                <tr>
+                    <td width = 20px style="text-decoration: bol;">
+                        <a href="#" onclick="showCategory('cse')">CSE</a><br>
+                        <a href="#" onclick="showCategory('ece')">ECE</a><br>
+                        <a href="#" onclick="showCategory('eee')">EEE</a><br>
+                        <a href="#" onclick="showCategory('civil')">CIVIL</a><br>
+                    </td>
+                    <td colspan="4" id="description-container" class="description-container">
+                        <div class="login-container" id="login-container">
+                            <form action="" method="">
+                                <label for="username">Username:</label>
+                                <input type="text" id="username" name="username" required>
+                                <label for="password">Password:</label>
+                                <input type="password" id="password" name="password" required>
+                                <button type="submit" ><a href="#" onclick="showCatalog()">Submit</a></button>
+                                <button type="reset" onclick="showLoginForm()">Reset</button>
+                            </form>
+                        </div>
+
+                        <div class="regis-container" id="regis-container">
+                            <form action="" method="">
+                                <h1>Registration</h1>
+ 
+                                <label for="Name">Name:</label>                                
+                                <input type="text" id="name" required>
+                                                        
+                                
+                                <label for="e-mail">E-mail:</label>
+                                <input type="email" id="e-mail" required>
+                                
+                                <label for="contact">Contact:</label>
+                                <input type="text" id="contact" required>
+                                                        
+                                <label for="newPassword">New Password:</label>        
+                                <input type="password" id="newPassword" required>
+                        
+                                <label for="Adress">Address:</label>        
+                                <input type="text" id="address" required>
+                                
+                                <button  type="submit"><a href="#" onclick="showLoginForm()">Sign Up</a></button>
+                            </form>
+                        </div>
+
+                        <div class="cse-container" style="display: none;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Cover Page</th>
+                                        <th>Author Name</th>
+                                        <th>Publisher</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><img style="height: 100px; width:100px;"src="images/Book 1.jpeg" alt="Book 1 Cover"></td>
+                                        <td>Thomas H. Cormen</td>
+                                        <td> PHI Learning Private Limited
+                                        </td>
+                                        <td>₹500</td>
+                                        <td><button class="add-to-cart-button" onclick="addToCart({
+                                            'author': 'Thomas H. Cormen',
+                                            'price': '₹500',
+                                            'image': 'images/Book 1.jpeg'
+                                        })">
+                                            <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                        </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><img style="height: 100px; width:100px;" src="images/Book 2.jpg" alt="Book 2 Cover"></td>
+                                        <td>Robert C. Martin</td>
+                                        <td>Prentice Hall India</td>
+                                        <td>₹400</td>
+                                        <td><button class="add-to-cart-button" onclick="addToCart({
+                                            'author': 'Robert C. Martin',
+                                            'price': '₹400',
+                                            'image': 'images/Book 2.jpeg'
+                                        })">
+                                            <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                        </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><img style="height: 100px; width:100px;"  src="images/Book 3.jpg" alt="Book 3 Cover"></td>
+                                        <td>Abraham Silberschatz</td>
+                                        <td>Wiley India</td>
+                                        <td>₹900</td>
+                                        <td><button class="add-to-cart-button" onclick="addToCart({
+                                            'author': 'Abraham Silberschatz',
+                                            'price': '₹900',
+                                            'image': 'images/Book 3.jpeg'
+                                        })">
+                                            <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                        </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><img style="height: 100px; width:100px;"  src="images/Book 4.jpg" alt="Book 4 Cover"></td>
+                                        <td>James F. Kurose and Keith W. Ross</td>
+                                        <td>Pearson India</td>
+                                        <td>₹1200
+                                        </td>
+                                        <td><button class="add-to-cart-button" onclick="addToCart({
+                                            'author': 'James F. Kurose and Keith W. Ross',
+                                            'price': '₹1200',
+                                            'image': 'images/Book 4.jpeg'
+                                        })">
+                                            <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                        </button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="ece-container" style="display: none;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Cover Page</th>
+                                        <th>Author Name</th>
+                                        <th>Publisher</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><img style="height: 100px; width:100px;"src="images/Book 1.jpeg" alt="Book 1 Cover"></td>
+                                        <td>Thomas H. Cormen</td>
+                                        <td> PHI Learning Private Limited
+                                        </td>
+                                        <td>₹500</td>
+                                        <td><button class="add-to-cart-button" onclick="addToCart({
+                                            'author': 'Thomas H. Cormen',
+                                            'price': '₹500',
+                                            'image': 'images/Book 1.jpeg'
+                                        })">
+                                            <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                        </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><img style="height: 100px; width:100px;" src="images/Book 2.jpg" alt="Book 2 Cover"></td>
+                                        <td>Robert C. Martin</td>
+                                        <td>Prentice Hall India</td>
+                                        <td>₹400</td>
+                                        <td><button class="add-to-cart-button" onclick="addToCart({
+                                            'author': 'Robert C. Martin',
+                                            'price': '₹400',
+                                            'image': 'images/Book 2.jpeg'
+                                        })">
+                                            <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                        </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><img style="height: 100px; width:100px;"  src="images/Book 3.jpg" alt="Book 3 Cover"></td>
+                                        <td>Abraham Silberschatz</td>
+                                        <td>Wiley India</td>
+                                        <td>₹900</td>
+                                        <td><button class="add-to-cart-button" onclick="addToCart({
+                                            'author': 'Abraham Silberschatz',
+                                            'price': '₹900',
+                                            'image': 'images/Book 3.jpeg'
+                                        })">
+                                            <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                        </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><img style="height: 100px; width:100px;"  src="images/Book 4.jpg" alt="Book 4 Cover"></td>
+                                        <td>James F. Kurose and Keith W. Ross</td>
+                                        <td>Pearson India</td>
+                                        <td>₹1200
+                                        </td>
+                                        <td><button class="add-to-cart-button" onclick="addToCart({
+                                            'author': 'James F. Kurose and Keith W. Ross',
+                                            'price': '₹1200',
+                                            'image': 'images/Book 4.jpeg'
+                                        })">
+                                            <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                        </button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="eee-container" style="display: none;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Cover Page</th>
+                                        <th>Author Name</th>
+                                        <th>Publisher</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><img style="height: 100px; width:100px;"src="images/Book 1.jpeg" alt="Book 1 Cover"></td>
+                                        <td>Thomas H. Cormen</td>
+                                        <td> PHI Learning Private Limited
+                                        </td>
+                                        <td>₹500</td>
+                                        <td><button class="add-to-cart-button" onclick="addToCart({
+                                            'author': 'Thomas H. Cormen',
+                                            'price': '₹500',
+                                            'image': 'images/Book 1.jpeg'
+                                        })">
+                                            <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                        </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><img style="height: 100px; width:100px;" src="images/Book 2.jpg" alt="Book 2 Cover"></td>
+                                        <td>Robert C. Martin</td>
+                                        <td>Prentice Hall India</td>
+                                        <td>₹400</td>
+                                        <td><button class="add-to-cart-button" onclick="addToCart({
+                                            'author': 'Robert C. Martin',
+                                            'price': '₹400',
+                                            'image': 'images/Book 2.jpeg'
+                                        })">
+                                            <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                        </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><img style="height: 100px; width:100px;"  src="images/Book 3.jpg" alt="Book 3 Cover"></td>
+                                        <td>Abraham Silberschatz</td>
+                                        <td>Wiley India</td>
+                                        <td>₹900</td>
+                                        <td><button class="add-to-cart-button" onclick="addToCart({
+                                            'author': 'Abraham Silberschatz',
+                                            'price': '₹900',
+                                            'image': 'images/Book 3.jpeg'
+                                        })">
+                                            <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                        </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><img style="height: 100px; width:100px;"  src="images/Book 4.jpg" alt="Book 4 Cover"></td>
+                                        <td>James F. Kurose and Keith W. Ross</td>
+                                        <td>Pearson India</td>
+                                        <td>₹1200
+                                        </td>
+                                        <td><button class="add-to-cart-button" onclick="addToCart({
+                                            'author': 'James F. Kurose and Keith W. Ross',
+                                            'price': '₹1200',
+                                            'image': 'images/Book 4.jpeg'
+                                        })">
+                                            <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                        </button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="civil-container" style="display: none;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Cover Page</th>
+                                        <th>Author Name</th>
+                                        <th>Publisher</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <tr>
+                                            <td><img style="height: 100px; width:100px;"src="images/Book 1.jpeg" alt="Book 1 Cover"></td>
+                                            <td>Thomas H. Cormen</td>
+                                            <td> PHI Learning Private Limited
+                                            </td>
+                                            <td>₹500</td>
+                                            <td><button class="add-to-cart-button" onclick="addToCart({
+                                                'author': 'Thomas H. Cormen',
+                                                'price': '₹500',
+                                                'image': 'images/Book 1.jpeg'
+                                            })">
+                                                <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                            </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img style="height: 100px; width:100px;" src="images/Book 2.jpg" alt="Book 2 Cover"></td>
+                                            <td>Robert C. Martin</td>
+                                            <td>Prentice Hall India</td>
+                                            <td>₹400</td>
+                                            <td><button class="add-to-cart-button" onclick="addToCart({
+                                                'author': 'Robert C. Martin',
+                                                'price': '₹400',
+                                                'image': 'images/Book 2.jpeg'
+                                            })">
+                                                <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                            </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img style="height: 100px; width:100px;"  src="images/Book 3.jpg" alt="Book 3 Cover"></td>
+                                            <td>Abraham Silberschatz</td>
+                                            <td>Wiley India</td>
+                                            <td>₹900</td>
+                                            <td><button class="add-to-cart-button" onclick="addToCart({
+                                                'author': 'Abraham Silberschatz',
+                                                'price': '₹900',
+                                                'image': 'images/Book 3.jpeg'
+                                            })">
+                                                <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                            </button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img style="height: 100px; width:100px;"  src="images/Book 4.jpg" alt="Book 4 Cover"></td>
+                                            <td>James F. Kurose and Keith W. Ross</td>
+                                            <td>Pearson India</td>
+                                            <td>₹1200
+                                            </td>
+                                            <td><button class="add-to-cart-button" onclick="addToCart({
+                                                'author': 'James F. Kurose and Keith W. Ross',
+                                                'price': '₹1200',
+                                                'image': 'images/Book 4.jpeg'
+                                            })">
+                                                <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                            </button></td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id="cart-container" style="display: none;">
+                            <h1>Shopping Cart</h1>
+                            <ul id="cart-items">
+                            </ul>
+                        </div>
+
+                        <div class="catalog-container" id="catalog-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Cover Page</th>
+                                        <th>Author Name</th>
+                                        <th>Publisher</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><img style="height: 100px; width:100px;"src="images/Book 1.jpeg" alt="Book 1 Cover"></td>
+                                        <td>Thomas H. Cormen</td>
+                                        <td> PHI Learning Private Limited
+                                        </td>
+                                        <td>₹500</td>
+                                        <td><button class="add-to-cart-button" onclick="addToCart({
+                                            'author': 'Thomas H. Cormen',
+                                            'price': '₹500',
+                                            'image': 'images/Book 1.jpeg'
+                                        })">
+                                            <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                        </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><img style="height: 100px; width:100px;" src="images/Book 2.jpg" alt="Book 2 Cover"></td>
+                                        <td>Robert C. Martin</td>
+                                        <td>Prentice Hall India</td>
+                                        <td>₹400</td>
+                                        <td><button class="add-to-cart-button" onclick="addToCart({
+                                            'author': 'Robert C. Martin',
+                                            'price': '₹400',
+                                            'image': 'images/Book 2.jpeg'
+                                        })">
+                                            <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                        </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><img style="height: 100px; width:100px;"  src="images/Book 3.jpg" alt="Book 3 Cover"></td>
+                                        <td>Abraham Silberschatz</td>
+                                        <td>Wiley India</td>
+                                        <td>₹900</td>
+                                        <td><button class="add-to-cart-button" onclick="addToCart({
+                                            'author': 'Abraham Silberschatz',
+                                            'price': '₹900',
+                                            'image': 'images/Book 3.jpeg'
+                                        })">
+                                            <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                        </button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><img style="height: 100px; width:100px;"  src="images/Book 4.jpg" alt="Book 4 Cover"></td>
+                                        <td>James F. Kurose and Keith W. Ross</td>
+                                        <td>Pearson India</td>
+                                        <td>₹1200
+                                        </td>
+                                        <td><button class="add-to-cart-button" onclick="addToCart({
+                                            'author': 'James F. Kurose and Keith W. Ross',
+                                            'price': '₹1200',
+                                            'image': 'images/Book 4.jpeg'
+                                        })">
+                                            <img src="images\add-to-cart.png" width=150px alt="add to cart">
+                                        </button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+    function showLoginForm() {
+    var loginContainer = document.getElementById("login-container");
+    var catalogContainer = document.getElementById("catalog-container");
+    var regicontainer = document.getElementById("regis-container");
+    var cartContainer = document.getElementById('cart-container');
+    cartContainer.style.display = 'none';
+    regicontainer.style.display = "none";
+    loginContainer.style.display = "block";
+    catalogContainer.style.display = "none";
+}
+
+function showRegispage(){
+    var regicontainer = document.getElementById("regis-container");
+    var loginContainer = document.getElementById("login-container");
+    var catalogContainer = document.getElementById("catalog-container");
+    var cartContainer = document.getElementById('cart-container');
+    cartContainer.style.display = 'none';
+    loginContainer.style.display = "none";
+    catalogContainer.style.display = "none";
+    regicontainer.style.display = "block";
+}
+
+function showCatalogPage() {
+    var loginContainer = document.getElementById("login-container");
+    var catalogContainer = document.getElementById("catalog-container");
+    var regicontainer = document.getElementById("regis-container");
+    var cartContainer = document.getElementById('cart-container');
+    cartContainer.style.display = 'none';
+    regicontainer.style.display = "none";
+    catalogContainer.style.display = "block";
+    loginContainer.style.display = "none";
+}
+
+function showCatalog() {
+    var catalogContainer = document.getElementById("catalog-container");
+    var regicontainer = document.getElementById("regis-container");
+    var loginContainer = document.getElementById("login-container");
+    var cartContainer = document.getElementById('cart-container');
+    cartContainer.style.display = 'none';
+    loginContainer.style.display = "none";
+    regicontainer.style.display = "none";
+    catalogContainer.style.display = "block";
+}
+
+function showDescription() {
+    var loginContainer = document.getElementById("login-container");
+    var catalogContainer = document.getElementById("catalog-container");
+    var regicontainer = document.getElementById("regis-container");
+    var cartContainer = document.getElementById('cart-container');
+    cartContainer.style.display = 'none';
+    regicontainer.style.display = "none";
+    loginContainer.style.display = "none";
+    catalogContainer.style.display = "none";
+}
+
+function showCategory(category) {
+   
+    var loginContainer = document.getElementById("login-container");
+    var catalogContainer = document.getElementById("catalog-container");
+    var regicontainer = document.getElementById("regis-container");
+    var cartContainer = document.getElementById('cart-container');
+    cartContainer.style.display = 'none';
+    regicontainer.style.display = "none";
+    loginContainer.style.display = "block";
+    catalogContainer.style.display = "none";
+}
+
+var shoppingCart = [];
+
+function addToCart(book) {
+    shoppingCart.push(book);
+    alert("Item added to cart!");
+}
+
+function showCart() {
+    var cartContainer = document.getElementById('cart-container');
+    var catalogContainer = document.getElementById('catalog-container');
+    var regicontainer = document.getElementById('regis-container');
+    var loginContainer = document.getElementById('login-container');
+
+    // Hide other containers
+    catalogContainer.style.display = 'none';
+    regicontainer.style.display = 'none';
+    loginContainer.style.display = 'none';
+
+    // Display the cart
+    cartContainer.style.display = 'block';
+
+    // Display the items in the cart
+    displayCart();
+}
+
+function displayCart() {
+    var cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = '';
+
+    shoppingCart.forEach(function (item) {
+        var listItem = document.createElement('li');
+
+        // Create an image element
+        var imgElement = document.createElement('img');
+        imgElement.src = item.image;
+        imgElement.style.width = '50px';
+        imgElement.style.height = '50px';
+        listItem.appendChild(imgElement);
+
+        // Create a text node for author and price
+        var textNode = document.createTextNode(`${item.author} - ${item.price}`);
+        listItem.appendChild(textNode);
+
+        // Append the list item to the cart
+        cartItems.appendChild(listItem);
+    });
+}
+
+
+    </script>
+
+</body>
+</html>
