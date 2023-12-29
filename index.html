@@ -217,37 +217,37 @@ th a {
                     </td>
                     <td colspan="4" id="description-container" class="description-container">
                         <div class="login-container" id="login-container">
-                            <form action="" method="">
+                            <form action="" name="myform" method="post" onsubmit="return validateForm()" >
                                 <label for="username">Username:</label>
                                 <input type="text" id="username" name="username" required>
                                 <label for="password">Password:</label>
                                 <input type="password" id="password" name="password" required>
-                                <button type="submit" ><a href="#" onclick="showCatalog()">Submit</a></button>
+                                <button type="submit" value="Submit">Submit</button>
                                 <button type="reset" onclick="showLoginForm()">Reset</button>
                             </form>
                         </div>
 
                         <div class="regis-container" id="regis-container">
-                            <form action="" method="">
+                            <form action="" name="myform1" onsubmit="return validateForm1()" method="">
                                 <h1>Registration</h1>
  
                                 <label for="Name">Name:</label>                                
-                                <input type="text" id="name" required>
+                                <input type="text" name="name1" id="name" required>
                                                         
                                 
                                 <label for="e-mail">E-mail:</label>
                                 <input type="email" id="e-mail" required>
                                 
                                 <label for="contact">Contact:</label>
-                                <input type="text" id="contact" required>
+                                <input type="text" name="phone" id="contact" required>
                                                         
                                 <label for="newPassword">New Password:</label>        
-                                <input type="password" id="newPassword" required>
+                                <input type="password" name="pin" "id="newPassword" required>
                         
                                 <label for="Adress">Address:</label>        
                                 <input type="text" id="address" required>
                                 
-                                <button  type="submit"><a href="#" onclick="showLoginForm()">Sign Up</a></button>
+                                <button  type="submit" value="Submit">Sign Up</button>
                             </form>
                         </div>
 
@@ -667,6 +667,47 @@ function showDescription() {
     regicontainer.style.display = "none";
     loginContainer.style.display = "none";
     catalogContainer.style.display = "none";
+}
+
+function validateForm()
+{
+    var x= document.forms["myform"]["username"].value;
+    var y= document.forms["myform"]["password"].value;
+    if(!isNaN(x))
+    {
+        alert("only alphabets are allowed");
+        return false;
+    }
+    if(isNaN(y))
+    {
+        alert("only digits are allowed");
+        return false;
+    }
+    showCatalogPage();
+    
+}
+
+function validateForm1()
+{
+    var x= document.forms["myform"]["name1"].value;
+    var y= document.forms["myform"]["phone"].value;
+    var z= document.forms["myform"]["pin"].value;
+    if(!isNaN(x))
+    {
+        alert("only alphabets are allowed");
+        return false;
+    }
+    if(isNaN(y))
+    {
+        alert("only digits are allowed");
+        return false;
+    }
+    if(isNaN(z))
+    {
+        alert("only digits are allowed");
+        return false;
+    }
+    showLoginForm();
 }
 
 function showCategory(category) {
